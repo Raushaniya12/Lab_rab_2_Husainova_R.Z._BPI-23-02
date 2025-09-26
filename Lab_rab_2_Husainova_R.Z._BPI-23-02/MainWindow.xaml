@@ -5,8 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab_rab_2_Husainova_R.Z._BPI_23_02"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Height="250" Width="500">
+    <Grid x:Name="_11var_png">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="Функция"/>
+        <StackPanel Grid.Row="1" >
+            <Image Source="/Resources/_11var.png" Height="60" HorizontalAlignment="Left" />
+        </StackPanel>
+        <StackPanel Grid.Row="2" HorizontalAlignment="Center">
+            <Button  Content="Считать"/>
+        </StackPanel>
     </Grid>
 </Window>
