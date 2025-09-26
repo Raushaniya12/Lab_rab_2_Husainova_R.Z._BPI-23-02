@@ -59,45 +59,5 @@ namespace Lab_rab_2_Husainova_R.Z._BPI_23_02.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap _11var {
-            get {
-                object obj = ResourceManager.GetObject("_11var", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap _1p {
-            get {
-                object obj = ResourceManager.GetObject("_1p", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap _3p {
-            get {
-                object obj = ResourceManager.GetObject("_3p", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap _4p {
-            get {
-                object obj = ResourceManager.GetObject("_4p", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }
