@@ -83,7 +83,7 @@
         </RadioButton>
         <RadioButton Margin="5" Name="Radio4">
             <WrapPanel>
-                <Image Source="/Resources/_4p.png" Height="50"/>
+                <Image Source="/Resources/_4p.png" Height="40"/>
                 <Label Content="c" VerticalAlignment="Center"/>
                 <ComboBox MinWidth="70" SelectedIndex="0" x:Name="R4CombD"
                           VerticalAlignment="Center">
