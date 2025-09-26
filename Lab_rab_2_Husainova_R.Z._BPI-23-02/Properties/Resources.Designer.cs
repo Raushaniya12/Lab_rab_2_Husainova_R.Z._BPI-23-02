@@ -11,8 +11,8 @@
 namespace Lab_rab_2_Husainova_R.Z._BPI_23_02.Properties {
     using System;
     using System.Drawing;
-
-
+    
+    
     /// <summary>
     ///   Класс ресурса со строгой типизацией для поиска локализованных строк и т.д.
     /// </summary>
@@ -67,6 +67,16 @@ namespace Lab_rab_2_Husainova_R.Z._BPI_23_02.Properties {
         public static System.Drawing.Bitmap _11var {
             get {
                 object obj = ResourceManager.GetObject("_11var", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap _1p {
+            get {
+                object obj = ResourceManager.GetObject("_1p", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

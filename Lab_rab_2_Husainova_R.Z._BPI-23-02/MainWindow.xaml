@@ -6,35 +6,37 @@
         xmlns:local="clr-namespace:Lab_rab_2_Husainova_R.Z._BPI_23_02"
         mc:Ignorable="d"
         Title="MainWindow" Height="250" Width="500">
-    <Grid x:Name="_11var_png">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="180"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Функция" HorizontalAlignment="Center"/>
-        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" >
-            <Image Source="/Resources/_11var.png" Height="60" HorizontalAlignment="Left" />
-        </StackPanel>
-        <StackPanel Grid.Row="6" Grid.ColumnSpan="2" Width="100"  HorizontalAlignment="Center">
-            <Button  Content="Считать"/>
-        </StackPanel>
-        <TextBlock Grid.Row="2" Text="Введите значение N"/>
-        <TextBox x:Name="TxtN" Grid.Row="2" Grid.Column="1"/>
-        <TextBlock Grid.Row="3" Text="Введите значение K"/>
-        <TextBox x:Name="TxtK" Grid.Row="3" Grid.Column="1"/>
-        <TextBlock Grid.Row="4" Text="Введите значение x"/>
-        <TextBox x:Name="TxtX" Grid.Row="4" Grid.Column="1"/>
-        <TextBlock Grid.Row="5" Text="Введите значение y"/>
-        <TextBox x:Name="TxtY" Grid.Row="5" Grid.Column="1"/>
-    </Grid>
+
+    <StackPanel>
+        <RadioButton IsChecked="True" Margin="5" Name="Radio1">
+            <WrapPanel>
+                
+                <Image Source="/Resources/_1p.png" Height="30" Width="192"/>
+                <GroupBox Header="Parameters">
+                    <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="100"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="a" Grid.Row="0" Grid.Column="0"/>
+                        <TextBox Text="0,00" Grid.Row="0" Grid.Column="1"
+                             MinWidth="70" x:Name="R1TextA"/>
+                        <Label Content="f" Grid.Row="1" Grid.Column="0"/>
+                        <ComboBox Grid.Row="1" Grid.Column="1" SelectedIndex="0" x:Name="R1CombF">
+                            <ComboBoxItem Content="4"/>
+                            <ComboBoxItem Content="5"/>
+                            <ComboBoxItem Content="6"/>
+                            <ComboBoxItem Content="7"/>
+                            <ComboBoxItem Content="8"/>
+                            <ComboBoxItem Content="9"/>
+                        </ComboBox>
+                    </Grid>
+                </GroupBox>
+            </WrapPanel>
+        </RadioButton>
+    </StackPanel>
 </Window>
