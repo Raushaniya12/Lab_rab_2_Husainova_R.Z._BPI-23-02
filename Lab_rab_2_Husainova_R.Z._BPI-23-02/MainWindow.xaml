@@ -14,14 +14,27 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Text="Функция"/>
-        <StackPanel Grid.Row="1" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="180"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Функция" HorizontalAlignment="Center"/>
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" >
             <Image Source="/Resources/_11var.png" Height="60" HorizontalAlignment="Left" />
         </StackPanel>
-        <StackPanel Grid.Row="2" HorizontalAlignment="Center">
+        <StackPanel Grid.Row="6" Grid.ColumnSpan="2" Width="100"  HorizontalAlignment="Center">
             <Button  Content="Считать"/>
         </StackPanel>
+        <TextBlock Grid.Row="2" Text="Введите значение N"/>
+        <TextBox x:Name="TxtN" Grid.Row="2" Grid.Column="1"/>
+        <TextBlock Grid.Row="3" Text="Введите значение K"/>
+        <TextBox x:Name="TxtK" Grid.Row="3" Grid.Column="1"/>
+        <TextBlock Grid.Row="4" Text="Введите значение x"/>
+        <TextBox x:Name="TxtX" Grid.Row="4" Grid.Column="1"/>
+        <TextBlock Grid.Row="5" Text="Введите значение y"/>
+        <TextBox x:Name="TxtY" Grid.Row="5" Grid.Column="1"/>
     </Grid>
 </Window>
