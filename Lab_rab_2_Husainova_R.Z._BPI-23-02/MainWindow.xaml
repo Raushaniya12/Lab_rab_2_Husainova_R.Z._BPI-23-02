@@ -5,12 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab_rab_2_Husainova_R.Z._BPI_23_02"
         mc:Ignorable="d"
-        Title="MainWindow" Height="250" Width="500">
+        Title="MainWindow" Height="550" Width="500">
 
     <StackPanel>
         <RadioButton IsChecked="True" Margin="5" Name="Radio1">
             <WrapPanel>
-                
                 <Image Source="/Resources/_1p.png" Height="30" Width="192"/>
                 <GroupBox Header="Parameters">
                     <Grid >
@@ -36,6 +35,69 @@
                         </ComboBox>
                     </Grid>
                 </GroupBox>
+            </WrapPanel>
+        </RadioButton>
+        <RadioButton Margin="5" Name="Radio2">
+            <WrapPanel>
+                <Image Source="/Resources/_p2.png" Height="23"/>
+                <GroupBox Header="Parameters">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="a"/>
+                        <TextBox Text="0,00"  MinWidth="70" x:Name="R2TextA"/>
+                        <Label Content="b"/>
+                        <TextBox Text="0,00"  MinWidth="70" x:Name="R2TextB"/>
+                        <Label Content="f"/>
+                        <ComboBox MinWidth="100" x:Name="R2CombF">
+                            <ComboBoxItem Content="10"/>
+                            <ComboBoxItem Content="20"/>
+                            <ComboBoxItem Content="30"/>
+                            <ComboBoxItem Content="40"/>
+                        </ComboBox>
+                    </StackPanel>
+                </GroupBox>
+            </WrapPanel>
+        </RadioButton>
+        <RadioButton Margin="5" Name="Radio3">
+            <WrapPanel>
+                <Image Source="/Resources/_3p.png" Height="30" />
+                <GroupBox Header="Parameters">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="a"/>
+                        <TextBox Text="0,00"  MinWidth="50" x:Name="R3TextA"/>
+                        <Label Content="b"/>
+                        <TextBox Text="0,00"  MinWidth="50" x:Name="R3TextB"/>
+                        <Label Content="c"/>
+                        <ComboBox MinWidth="50" SelectedIndex="0" x:Name="R3CombC">
+                            <ComboBoxItem Content="0"/>
+                            <ComboBoxItem Content="1"/>
+                        </ComboBox>
+                        <Label Content="d"/>
+                        <ComboBox MinWidth="70" SelectedIndex="0" x:Name="R3CombD">
+                            <ComboBoxItem Content="-1"/>
+                            <ComboBoxItem Content="0"/>
+                            <ComboBoxItem Content="1"/>
+                        </ComboBox>
+                    </StackPanel>
+                </GroupBox>
+            </WrapPanel>
+        </RadioButton>
+        <RadioButton Margin="5" Name="Radio4">
+            <WrapPanel>
+                <Image Source="/Resources/_4p.png" Height="50"/>
+                <Label Content="c" VerticalAlignment="Center"/>
+                <ComboBox MinWidth="70" SelectedIndex="0" x:Name="R4CombD"
+                          VerticalAlignment="Center">
+                    <ComboBoxItem Content="0"/>
+                    <ComboBoxItem Content="1"/>
+                    <ComboBoxItem Content="2"/>
+                </ComboBox>
+                    <Label Content="d" VerticalAlignment="Center"/>
+                    <TextBox Text="0,00"  MinWidth="70" x:Name="R4TextD"
+                             VerticalAlignment="Center"/>
+                    <Label Content="a" VerticalAlignment="Center"/>
+                <TextBox Text="0,00"  MinWidth="70" 
+                         VerticalAlignment="Center" x:Name="R4TextA"/>
+                <Image Source="/Resources/_11var.png" Height="23"/>
             </WrapPanel>
         </RadioButton>
     </StackPanel>
