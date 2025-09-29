@@ -10,8 +10,8 @@
     <StackPanel>
         <RadioButton IsChecked="True" Margin="5" Name="Radio1">
             <WrapPanel>
-                <Image Source="/Resources/_1p.png" Height="30" Width="192"/>
-                <GroupBox Header="Parameters">
+                <Image Source="/Resources/_1p.png" Height="30"/>
+                <GroupBox Header="Параметры функции">
                     <Grid >
                         <Grid.RowDefinitions>
                             <RowDefinition/>
@@ -40,7 +40,7 @@
         <RadioButton Margin="5" Name="Radio2">
             <WrapPanel>
                 <Image Source="/Resources/_p2.png" Height="23"/>
-                <GroupBox Header="Parameters">
+                <GroupBox Header="Параметры функции">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="a"/>
                         <TextBox Text="0,00"  MinWidth="70" x:Name="R2TextA"/>
@@ -60,7 +60,7 @@
         <RadioButton Margin="5" Name="Radio3">
             <WrapPanel>
                 <Image Source="/Resources/_3p.png" Height="30" />
-                <GroupBox Header="Parameters">
+                <GroupBox Header="Параметры функции">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="a"/>
                         <TextBox Text="0,00"  MinWidth="50" x:Name="R3TextA"/>
@@ -96,9 +96,27 @@
                              VerticalAlignment="Center"/>
                     <Label Content="a" VerticalAlignment="Center"/>
                 <TextBox Text="0,00"  MinWidth="70" 
-                         VerticalAlignment="Center" x:Name="R4TextA"/>
-                <Image Source="/Resources/_11var.png" Height="23"/>
+                         VerticalAlignment="Center" x:Name="R4TextA"/>                
             </WrapPanel>
         </RadioButton>
+        <RadioButton Margin="5" Name="Radio5">
+            <WrapPanel>
+                <Image Source="/Resources/_11var.png" Height="30"/>
+                <GroupBox Header="Параметры функции Z">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="x"/>
+                        <TextBox Text="0,00" MinWidth="60" x:Name="R5TextX" Margin="2"/>
+                        <Label Content="y"/>
+                        <TextBox Text="0,00" MinWidth="60" x:Name="R5TextY" Margin="2"/>
+                        <Label Content="N ="/>
+                        <TextBox MinWidth="50" x:Name="R5TextN" Margin="2"/>
+                        <Label Content="K ="/>
+                        <TextBox MinWidth="50" x:Name="R5TextK" Margin="2"/>
+                    </StackPanel>
+                </GroupBox>
+            </WrapPanel>
+        </RadioButton>
+        <Button Content="Считать" Margin="10"
+                Click="BtnCalculate_Click"/>
     </StackPanel>
 </Window>

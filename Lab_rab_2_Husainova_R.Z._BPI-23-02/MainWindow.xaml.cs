@@ -24,5 +24,7 @@ namespace Lab_rab_2_Husainova_R.Z._BPI_23_02
         {
             InitializeComponent();
         }
+        private void BtnCalculate_Click(object sender, RoutedEventArgs e)
+        { }
     }
 }
