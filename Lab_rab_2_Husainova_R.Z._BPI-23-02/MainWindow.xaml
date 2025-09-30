@@ -22,7 +22,7 @@
                             <ColumnDefinition Width="100"/>
                         </Grid.ColumnDefinitions>
                         <Label Content="a" Grid.Row="0" Grid.Column="0"/>
-                        <TextBox Text="0,00" Grid.Row="0" Grid.Column="1"
+                        <TextBox Text="0" Grid.Row="0" Grid.Column="1"
                              MinWidth="70" x:Name="R1TextA"/>
                         <Label Content="f" Grid.Row="1" Grid.Column="0"/>
                         <ComboBox Grid.Row="1" Grid.Column="1" SelectedIndex="0" x:Name="R1CombF">
@@ -43,11 +43,11 @@
                 <GroupBox Header="Параметры функции">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="a"/>
-                        <TextBox Text="0,00"  MinWidth="70" x:Name="R2TextA"/>
+                        <TextBox Text="0"  MinWidth="70" x:Name="R2TextA"/>
                         <Label Content="b"/>
-                        <TextBox Text="0,00"  MinWidth="70" x:Name="R2TextB"/>
+                        <TextBox Text="0"  MinWidth="70" x:Name="R2TextB"/>
                         <Label Content="f"/>
-                        <ComboBox MinWidth="100" x:Name="R2CombF">
+                        <ComboBox MinWidth="100" SelectedIndex="0" x:Name="R2CombF">
                             <ComboBoxItem Content="10"/>
                             <ComboBoxItem Content="20"/>
                             <ComboBoxItem Content="30"/>
@@ -63,9 +63,9 @@
                 <GroupBox Header="Параметры функции">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="a"/>
-                        <TextBox Text="0,00"  MinWidth="50" x:Name="R3TextA"/>
+                        <TextBox Text="0"  MinWidth="50" x:Name="R3TextA"/>
                         <Label Content="b"/>
-                        <TextBox Text="0,00"  MinWidth="50" x:Name="R3TextB"/>
+                        <TextBox Text="0"  MinWidth="50" x:Name="R3TextB"/>
                         <Label Content="c"/>
                         <ComboBox MinWidth="50" SelectedIndex="0" x:Name="R3CombC">
                             <ComboBoxItem Content="0"/>
@@ -92,10 +92,10 @@
                     <ComboBoxItem Content="2"/>
                 </ComboBox>
                     <Label Content="d" VerticalAlignment="Center"/>
-                    <TextBox Text="0,00"  MinWidth="70" x:Name="R4TextD"
+                    <TextBox Text="0"  MinWidth="70" x:Name="R4TextD"
                              VerticalAlignment="Center"/>
                     <Label Content="a" VerticalAlignment="Center"/>
-                <TextBox Text="0,00"  MinWidth="70" 
+                <TextBox Text="0"  MinWidth="70" 
                          VerticalAlignment="Center" x:Name="R4TextA"/>                
             </WrapPanel>
         </RadioButton>
@@ -105,13 +105,13 @@
                 <GroupBox Header="Параметры функции Z">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="x"/>
-                        <TextBox Text="0,00" MinWidth="60" x:Name="R5TextX" Margin="2"/>
+                        <TextBox Text="0" MinWidth="60" x:Name="R5TextX" Margin="2"/>
                         <Label Content="y"/>
-                        <TextBox Text="0,00" MinWidth="60" x:Name="R5TextY" Margin="2"/>
+                        <TextBox Text="0" MinWidth="60" x:Name="R5TextY" Margin="2"/>
                         <Label Content="N ="/>
-                        <TextBox MinWidth="50" x:Name="R5TextN" Margin="2"/>
+                        <TextBox Text="0" MinWidth="50" x:Name="R5TextN" Margin="2"/>
                         <Label Content="K ="/>
-                        <TextBox MinWidth="50" x:Name="R5TextK" Margin="2"/>
+                        <TextBox Text="0" MinWidth="50" x:Name="R5TextK" Margin="2"/>
                     </StackPanel>
                 </GroupBox>
             </WrapPanel>
