@@ -22,8 +22,8 @@
                             <ColumnDefinition Width="100"/>
                         </Grid.ColumnDefinitions>
                         <Label Content="a" Grid.Row="0" Grid.Column="0"/>
-                        <TextBox Text="0" Grid.Row="0" Grid.Column="1"
-                             MinWidth="70" x:Name="R1TextA"/>
+                        <TextBox x:Name="R1TextA" Text="0" Grid.Row="0" Grid.Column="1"
+                             PreviewTextInput="TextBox_PreviewTextInput" MinWidth="70"/>
                         <Label Content="f" Grid.Row="1" Grid.Column="0"/>
                         <ComboBox Grid.Row="1" Grid.Column="1" SelectedIndex="0" x:Name="R1CombF">
                             <ComboBoxItem Content="4"/>
@@ -43,9 +43,11 @@
                 <GroupBox Header="Параметры функции">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="a"/>
-                        <TextBox Text="0"  MinWidth="70" x:Name="R2TextA"/>
+                        <TextBox Text="0"  MinWidth="70" x:Name="R2TextA"
+                                 PreviewTextInput="TextBox_PreviewTextInput"/>
                         <Label Content="b"/>
-                        <TextBox Text="0"  MinWidth="70" x:Name="R2TextB"/>
+                        <TextBox Text="0"  MinWidth="70" x:Name="R2TextB"
+                                 PreviewTextInput="TextBox_PreviewTextInput"/>
                         <Label Content="f"/>
                         <ComboBox MinWidth="100" SelectedIndex="0" x:Name="R2CombF">
                             <ComboBoxItem Content="10"/>
@@ -63,9 +65,11 @@
                 <GroupBox Header="Параметры функции">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="a"/>
-                        <TextBox Text="0"  MinWidth="50" x:Name="R3TextA"/>
+                        <TextBox Text="0"  MinWidth="50" x:Name="R3TextA"
+                                 PreviewTextInput="TextBox_PreviewTextInput"/>
                         <Label Content="b"/>
-                        <TextBox Text="0"  MinWidth="50" x:Name="R3TextB"/>
+                        <TextBox Text="0"  MinWidth="50" x:Name="R3TextB"
+                                 PreviewTextInput="TextBox_PreviewTextInput"/>
                         <Label Content="c"/>
                         <ComboBox MinWidth="50" SelectedIndex="0" x:Name="R3CombC">
                             <ComboBoxItem Content="0"/>
@@ -85,7 +89,7 @@
             <WrapPanel>
                 <Image Source="/Resources/_4p.png" Height="40"/>
                 <Label Content="c" VerticalAlignment="Center"/>
-                <ComboBox MinWidth="70" SelectedIndex="0" x:Name="R4CombD"
+                <ComboBox MinWidth="70" SelectedIndex="0" x:Name="R4CombC"
                           VerticalAlignment="Center">
                     <ComboBoxItem Content="0"/>
                     <ComboBoxItem Content="1"/>
@@ -93,10 +97,11 @@
                 </ComboBox>
                     <Label Content="d" VerticalAlignment="Center"/>
                     <TextBox Text="0"  MinWidth="70" x:Name="R4TextD"
-                             VerticalAlignment="Center"/>
+                             VerticalAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"/>
                     <Label Content="a" VerticalAlignment="Center"/>
                 <TextBox Text="0"  MinWidth="70" 
-                         VerticalAlignment="Center" x:Name="R4TextA"/>                
+                         VerticalAlignment="Center" x:Name="R4TextA"
+                         PreviewTextInput="TextBox_PreviewTextInput"/>                
             </WrapPanel>
         </RadioButton>
         <RadioButton Margin="5" Name="Radio5">
@@ -105,13 +110,17 @@
                 <GroupBox Header="Параметры функции Z">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="x"/>
-                        <TextBox Text="0" MinWidth="60" x:Name="R5TextX" Margin="2"/>
+                        <TextBox Text="0" MinWidth="60" x:Name="R5TextX" Margin="2"
+                                 PreviewTextInput="TextBox_PreviewTextInput"/>
                         <Label Content="y"/>
-                        <TextBox Text="0" MinWidth="60" x:Name="R5TextY" Margin="2"/>
+                        <TextBox Text="0" MinWidth="60" x:Name="R5TextY" Margin="2"
+                                 PreviewTextInput="TextBox_PreviewTextInput"/>
                         <Label Content="N ="/>
-                        <TextBox Text="0" MinWidth="50" x:Name="R5TextN" Margin="2"/>
+                        <TextBox Text="0" MinWidth="50" x:Name="R5TextN" Margin="2"
+                                 PreviewTextInput="TextBox_PreviewTextInput"/>
                         <Label Content="K ="/>
-                        <TextBox Text="0" MinWidth="50" x:Name="R5TextK" Margin="2"/>
+                        <TextBox Text="0" MinWidth="50" x:Name="R5TextK" Margin="2"
+                                 PreviewTextInput="TextBox_PreviewTextInput"/>
                     </StackPanel>
                 </GroupBox>
             </WrapPanel>

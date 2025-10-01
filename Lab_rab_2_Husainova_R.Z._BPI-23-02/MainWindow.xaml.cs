@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace Lab_rab_2_Husainova_R.Z._BPI_23_02
 {
@@ -41,10 +42,9 @@ namespace Lab_rab_2_Husainova_R.Z._BPI_23_02
                 else if (Radio4.IsChecked == true)
                 {
                     double a = ParseDouble(R4TextA.Text);
-                    int c = GetIntFromComboBox(R4CombD); // это "c"!
+                    int c = GetIntFromComboBox(R4CombC);
                     double dVal = ParseDouble(R4TextD.Text);
                     int d = (int)Math.Round(dVal);
-
                     result = Function.Function4(a, c, d);
                 }
                 else if (Radio5.IsChecked == true)
@@ -69,7 +69,7 @@ namespace Lab_rab_2_Husainova_R.Z._BPI_23_02
             }
             catch (FormatException ex)
             {
-                MessageBox.Show($"Ошибка ввода: {ex.Message}\n\nУбедитесь, что все поля заполнены корректными числами.\nИспользуйте запятую как десятичный разделитель (например: 1,5).", "Ошибка ввода", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show($"Ошибка ввода: {ex.Message} Убедитесь, что все поля заполнены корректными числами", "Ошибка ввода", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             catch (OverflowException)
             {
@@ -110,10 +110,34 @@ namespace Lab_rab_2_Husainova_R.Z._BPI_23_02
                 if (int.TryParse(content, out int value))
                     return value;
 
-                throw new FormatException($"Не удалось преобразовать '{content}' в целое число.");
+                throw new FormatException($"Не удалось преобразовать '{content}' в целое число");
             }
 
             throw new InvalidOperationException("Выбранный элемент не является ComboBoxItem или не содержит значения");
         }
+
+        private bool IsValidNumberInput(string text)
+        {
+            if (string.IsNullOrEmpty(text) || text == "-")
+                return true;
+
+            string normalized = text.Replace(',', '.');
+            return double.TryParse(normalized,
+                System.Globalization.NumberStyles.Float,
+                System.Globalization.CultureInfo.InvariantCulture,
+                out _);
+        }
+
+        private void TextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox == null) return;
+
+            string newText = textBox.Text.Remove(textBox.SelectionStart, textBox.SelectionLength)
+                                        .Insert(textBox.SelectionStart, e.Text);
+
+            e.Handled = !IsValidNumberInput(newText);
+        }
+
     }
 }
