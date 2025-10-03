@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab_rab_2_Husainova_R.Z._BPI_23_02"
         mc:Ignorable="d"
-        Title="MainWindow" Height="550" Width="500">
+        Title="MainWindow" Height="450" Width="570" MinHeight="450" MinWidth="500">
 
     <StackPanel>
         <RadioButton IsChecked="True" Margin="5" Name="Radio1">
             <WrapPanel>
-                <Image Source="/Resources/_1p.png" Height="30"/>
+                <Image Source="/Resources/_1p.png" Height="25"/>
                 <GroupBox Header="Параметры функции">
                     <Grid >
                         <Grid.RowDefinitions>
@@ -39,7 +39,7 @@
         </RadioButton>
         <RadioButton Margin="5" Name="Radio2">
             <WrapPanel>
-                <Image Source="/Resources/_p2.png" Height="23"/>
+                <Image Source="/Resources/_p2.png" Height="20"/>
                 <GroupBox Header="Параметры функции">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="a"/>
@@ -61,7 +61,7 @@
         </RadioButton>
         <RadioButton Margin="5" Name="Radio3">
             <WrapPanel>
-                <Image Source="/Resources/_3p.png" Height="30" />
+                <Image Source="/Resources/_3p.png" Height="25" />
                 <GroupBox Header="Параметры функции">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="a"/>
@@ -87,8 +87,10 @@
         </RadioButton>
         <RadioButton Margin="5" Name="Radio4">
             <WrapPanel>
-                <Image Source="/Resources/_4p.png" Height="40"/>
-                <Label Content="c" VerticalAlignment="Center"/>
+                <Image Source="/Resources/_4p.png" Height="36"/>
+                <GroupBox Header="Параметры функции">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="c" VerticalAlignment="Center"/>
                 <ComboBox MinWidth="70" SelectedIndex="0" x:Name="R4CombC"
                           VerticalAlignment="Center">
                     <ComboBoxItem Content="0"/>
@@ -101,12 +103,14 @@
                     <Label Content="a" VerticalAlignment="Center"/>
                 <TextBox Text="0"  MinWidth="70" 
                          VerticalAlignment="Center" x:Name="R4TextA"
-                         PreviewTextInput="TextBox_PreviewTextInput"/>                
+                         PreviewTextInput="TextBox_PreviewTextInput"/>
+                        </StackPanel>
+                    </GroupBox>
             </WrapPanel>
         </RadioButton>
         <RadioButton Margin="5" Name="Radio5">
             <WrapPanel>
-                <Image Source="/Resources/_11var.png" Height="30"/>
+                <Image Source="/Resources/_11var.png" Height="35"/>
                 <GroupBox Header="Параметры функции Z">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="x"/>
@@ -125,7 +129,7 @@
                 </GroupBox>
             </WrapPanel>
         </RadioButton>
-        <Button Content="Считать" Margin="10"
+        <Button Content="Считать" Margin="10" HorizontalAlignment="Center"
                 Click="BtnCalculate_Click"/>
     </StackPanel>
 </Window>
