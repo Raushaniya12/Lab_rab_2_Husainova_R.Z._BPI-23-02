@@ -1,0 +1,42 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Lab_rab_2_Husainova_R.Z._BPI_23_02
+{
+    public class Function5 : BaseFunction
+    {
+        public double X { get; set; }
+        public double Y { get; set; }
+        public int N { get; set; }
+        public int K { get; set; }
+        public Function5(double x = 0, double y = 0, int n = 1, int k = 1)
+        {
+            X = x;
+            Y = y;
+            N = n;
+            K = k;
+        }
+        public override string ImagePath => "/Resources/_11var.png";
+        public override double Calculate()
+        {
+
+            if (N < 1 || K < 1)
+                throw new ArgumentException("N и K должны быть ≥ 1");
+
+            double sum = 0;
+            for (int i = 1; i <= N; i++)
+            {
+                for (int j = 1; j <= K; j++)
+                {
+                    double numerator = Math.Sin(Math.Pow(Y, i)) + i * X;
+                    double denominator = (i + 1) * j;
+                    sum += numerator / denominator;
+                }
+            }
+            return sum;
+        }
+    }
+}

@@ -64,8 +64,11 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="BaseFunction.cs" />
-    <Compile Include="Function.cs" />
     <Compile Include="Function1.cs" />
+    <Compile Include="Function2.cs" />
+    <Compile Include="Function3.cs" />
+    <Compile Include="Function4.cs" />
+    <Compile Include="Function5.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
