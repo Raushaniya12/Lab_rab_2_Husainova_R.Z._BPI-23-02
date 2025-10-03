@@ -6,11 +6,18 @@
         xmlns:local="clr-namespace:Lab_rab_2_Husainova_R.Z._BPI_23_02"
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="570" MinHeight="400" MinWidth="570">
+    <Window.Resources>
+        <local:Function1 x:Key="Func1"/>
+        <local:Function2 x:Key="Func2"/>
+        <local:Function3 x:Key="Func3"/>
+        <local:Function4 x:Key="Func4"/>
+        <local:Function5 x:Key="Func5"/>
+    </Window.Resources>
 
     <StackPanel>
         <RadioButton  Margin="5" Name="Radio1">
             <WrapPanel>
-                <Image Source="/Resources/_1p.png" Height="25"/>
+                <Image Source="{Binding ImagePath, Source={StaticResource Func1}}" Height="25"/>
                 <GroupBox Header="Параметры функции">
                     <Grid >
                         <Grid.RowDefinitions>
@@ -39,7 +46,7 @@
         </RadioButton>
         <RadioButton Margin="5" Name="Radio2">
             <WrapPanel>
-                <Image Source="/Resources/_p2.png" Height="20"/>
+                <Image Source="{Binding ImagePath, Source={StaticResource Func2}}" Height="20"/>
                 <GroupBox Header="Параметры функции">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="a"/>
@@ -61,7 +68,7 @@
         </RadioButton>
         <RadioButton Margin="5" Name="Radio3">
             <WrapPanel>
-                <Image Source="/Resources/_3p.png" Height="25" />
+                <Image Source="{Binding ImagePath, Source={StaticResource Func3}}" Height="25"/>
                 <GroupBox Header="Параметры функции">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="a"/>
@@ -87,7 +94,7 @@
         </RadioButton>
         <RadioButton Margin="5" Name="Radio4">
             <WrapPanel>
-                <Image Source="/Resources/_4p.png" Height="36"/>
+                <Image Source="{Binding ImagePath, Source={StaticResource Func4}}" Height="36"/>
                 <GroupBox Header="Параметры функции">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="c" VerticalAlignment="Center"/>
@@ -110,7 +117,7 @@
         </RadioButton>
         <RadioButton Margin="5" Name="Radio5">
             <WrapPanel>
-                <Image Source="/Resources/_11var.png" Height="35"/>
+                <Image Source="{Binding ImagePath, Source={StaticResource Func5}}" Height="35"/>
                 <GroupBox Header="Параметры функции Z">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="x"/>

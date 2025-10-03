@@ -16,22 +16,24 @@ namespace Lab_rab_2_Husainova_R.Z._BPI_23_02
         {
             try
             {
-                //double result = 0.0;
+                BaseFunction func = null;
 
                 if (Radio1.IsChecked == true)
                 {
                     double a = ParseDouble(R1TextA.Text);
                     int f = GetIntFromComboBox(R1CombF);
-                    //result = Function.Function1(a, f);
-                    this.Title = "Ответ: " + Function.Function1(a,f);
+                    func = new Function1();
+                    double result = func.Calculate(a, f);
+                    this.Title = "Ответ: " + result;
                 }
                 else if (Radio2.IsChecked == true)
                 {
                     double a = ParseDouble(R2TextA.Text);
                     double b = ParseDouble(R2TextB.Text);
                     int f = GetIntFromComboBox(R2CombF);
-                    //result = Function.Function2(a, b, f);
-                    this.Title = "Ответ: " + Function.Function2(a, b, f);
+                    func = new Function2();
+                    double result = func.Calculate(a, b, f);
+                    this.Title = "Ответ: " + result;
                 }
                 else if (Radio3.IsChecked == true)
                 {
@@ -39,8 +41,11 @@ namespace Lab_rab_2_Husainova_R.Z._BPI_23_02
                     double b = ParseDouble(R3TextB.Text);
                     int c = GetIntFromComboBox(R3CombC);
                     int d = GetIntFromComboBox(R3CombD);
+                    func = new Function3();
+                    double result = func.Calculate(a, b, c, d);
+                    this.Title = "Ответ: " + result;
                     //result = Function.Function3(a, b, c, d);
-                    this.Title = "Ответ: " + Function.Function3(a, b, c, d);
+                    this.Title = "Ответ: " + result;
                 }
                 else if (Radio4.IsChecked == true)
                 {
@@ -48,8 +53,9 @@ namespace Lab_rab_2_Husainova_R.Z._BPI_23_02
                     int c = GetIntFromComboBox(R4CombC);
                     double dVal = ParseDouble(R4TextD.Text);
                     int d = (int)Math.Round(dVal);
-                    //result = Function.Function4(a, c, d);
-                    this.Title = "Ответ: " + Function.Function4(a, c, d);
+                    func = new Function4();
+                    double result = func.Calculate(a, c, d);
+                    this.Title = "Ответ: " + result;
                 }
                 else if (Radio5.IsChecked == true)
                 {
@@ -61,17 +67,15 @@ namespace Lab_rab_2_Husainova_R.Z._BPI_23_02
                     if (N < 1 || K < 1)
                         throw new ArgumentException("N и K должны быть ≥ 1");
 
-                    //result = Function.Function5(x, y, N, K);
-                    this.Title = "Ответ: " + Function.Function5(x, y, N, K);
+                    func = new Function5();
+                    double result = func.Calculate(x, y, N, K);
+                    this.Title = "Ответ: " + result;                    
                 }
                 else
                 {
                     MessageBox.Show("Выберите одну из функций", "Внимание", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
-                }
-                //this.Title = $"Ответ:{result:F6}";
-
-                //MessageBox.Show($"Результат: {result:F6}", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                }                
             }
             catch (FormatException ex)
             {
