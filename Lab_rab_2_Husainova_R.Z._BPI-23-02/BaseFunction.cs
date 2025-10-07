@@ -1,8 +1,10 @@
 ﻿using System;
 
-public abstract class BaseFunction
+namespace Lab_rab_2_Husainova_R.Z._BPI_23_02
 {
-    public abstract double Calculate();
-    public virtual string ImagePath => "/Resources/placeholder.png";
-    
+    public abstract class BaseFunction
+    {
+        public abstract string ImagePath { get; }
+        public abstract double Calculate(FunctionParameters parameters);
+    }
 }

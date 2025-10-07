@@ -98,21 +98,21 @@
                 <GroupBox Header="Параметры функции">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="c" VerticalAlignment="Center"/>
-                <ComboBox MinWidth="70" SelectedIndex="0" x:Name="R4CombC"
+                        <ComboBox MinWidth="70" SelectedIndex="0" x:Name="R4CombC"
                           VerticalAlignment="Center">
-                    <ComboBoxItem Content="0"/>
-                    <ComboBoxItem Content="1"/>
-                    <ComboBoxItem Content="2"/>
-                </ComboBox>
-                    <Label Content="d" VerticalAlignment="Center"/>
-                    <TextBox Text="0"  MinWidth="70" x:Name="R4TextD"
+                            <ComboBoxItem Content="0"/>
+                            <ComboBoxItem Content="1"/>
+                            <ComboBoxItem Content="2"/>
+                        </ComboBox>
+                        <Label Content="d" VerticalAlignment="Center"/>
+                        <TextBox Text="0"  MinWidth="70" x:Name="R4TextD"
                              VerticalAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"/>
-                    <Label Content="a" VerticalAlignment="Center"/>
-                <TextBox Text="0"  MinWidth="70" 
+                        <Label Content="a" VerticalAlignment="Center"/>
+                        <TextBox Text="0"  MinWidth="70" 
                          VerticalAlignment="Center" x:Name="R4TextA"
                          PreviewTextInput="TextBox_PreviewTextInput"/>
-                        </StackPanel>
-                    </GroupBox>
+                    </StackPanel>
+                </GroupBox>
             </WrapPanel>
         </RadioButton>
         <RadioButton Margin="5" Name="Radio5">

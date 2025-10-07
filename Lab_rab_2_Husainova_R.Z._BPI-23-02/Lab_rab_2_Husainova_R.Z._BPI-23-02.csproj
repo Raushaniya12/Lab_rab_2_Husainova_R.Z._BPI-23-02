@@ -69,6 +69,7 @@
     <Compile Include="Function3.cs" />
     <Compile Include="Function4.cs" />
     <Compile Include="Function5.cs" />
+    <Compile Include="FunctionParameters.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

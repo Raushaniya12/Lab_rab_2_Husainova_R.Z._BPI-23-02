@@ -1,24 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lab_rab_2_Husainova_R.Z._BPI_23_02
 {
     public class Function1 : BaseFunction
     {
-        public double A { get; set; }
-        public int F { get; set; }
-        public Function1(double a = 0, int f = 1)
-        {
-            A = a;
-            F = f;
-        }
         public override string ImagePath => "/Resources/_1p.png";
-        public override double Calculate()
+
+        public override double Calculate(FunctionParameters p)
         {
-            return Math.Sin(F * A);
+            return Math.Sin(p.F * p.A);
         }
     }
 }
