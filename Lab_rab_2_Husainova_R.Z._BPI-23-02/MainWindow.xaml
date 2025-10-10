@@ -105,7 +105,7 @@
                             <ComboBoxItem Content="2"/>
                         </ComboBox>
                         <Label Content="d" VerticalAlignment="Center"/>
-                        <TextBox Text="0"  MinWidth="70" x:Name="R4TextD"
+                        <TextBox Text="0"  MinWidth="70" x:Name="R4TextD" ToolTip="Введите целое число"
                              VerticalAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"/>
                         <Label Content="a" VerticalAlignment="Center"/>
                         <TextBox Text="0"  MinWidth="70" 
@@ -128,10 +128,10 @@
                                  PreviewTextInput="TextBox_PreviewTextInput"/>
                         <Label Content="N ="/>
                         <TextBox  MinWidth="50" x:Name="R5TextN" Margin="2"
-                                 PreviewTextInput="TextBox_PreviewTextInput"/>
+                                 PreviewTextInput="TextBox_PreviewTextInput" ToolTip="Введите целое число"/>
                         <Label Content="K ="/>
                         <TextBox  MinWidth="50" x:Name="R5TextK" Margin="2"
-                                 PreviewTextInput="TextBox_PreviewTextInput"/>
+                                 PreviewTextInput="TextBox_PreviewTextInput" ToolTip="Введите целое число"/>
                     </StackPanel>
                 </GroupBox>
             </WrapPanel>

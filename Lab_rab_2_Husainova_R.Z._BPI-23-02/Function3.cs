@@ -8,10 +8,14 @@ namespace Lab_rab_2_Husainova_R.Z._BPI_23_02
 {
     public class Function3 : BaseFunction
     {
+        public int C { get; set; }
+        public double A { get; set; }
+        public int D { get; set; }
+        public double B { get; set; }
         public override string ImagePath => "/Resources/_3p.png";
-        public override double Calculate(FunctionParameters p)
+        public override double Calculate()
         {
-            return p.C * Math.Pow(p.A, 2) + p.D * Math.Pow(p.B, 2);
+            return C * Math.Pow(A, 2) + D * Math.Pow(B, 2);
         }
     }
 }

@@ -16,45 +16,48 @@ namespace Lab_rab_2_Husainova_R.Z._BPI_23_02
         {
             try
             {
-                var parameters = new FunctionParameters();
-
                 BaseFunction func = null;
 
                 if (Radio1.IsChecked == true)
                 {
-                    parameters.A = ParseDouble(R1TextA.Text);
-                    parameters.F = GetIntFromComboBox(R1CombF);
-                    func = new Function1();
+                    var f1 = new Function1();
+                    f1.A = ParseDouble(R1TextA.Text);
+                    f1.F = GetIntFromComboBox(R1CombF);
+                    func = f1;
                 }
                 else if (Radio2.IsChecked == true)
                 {
-                    parameters.A = ParseDouble(R2TextA.Text);
-                    parameters.B = ParseDouble(R2TextB.Text);
-                    parameters.F = GetIntFromComboBox(R2CombF);
-                    func = new Function2();
+                    var f2 = new Function2();
+                    f2.A = ParseDouble(R2TextA.Text);
+                    f2.B = ParseDouble(R2TextB.Text);
+                    f2.F = GetIntFromComboBox(R2CombF);
+                    func = f2;
                 }
                 else if (Radio3.IsChecked == true)
                 {
-                    parameters.A = ParseDouble(R3TextA.Text);
-                    parameters.B = ParseDouble(R3TextB.Text);
-                    parameters.C = GetIntFromComboBox(R3CombC);
-                    parameters.D = GetIntFromComboBox(R3CombD);
+                    var f3 = new Function3();
+                    f3.A = ParseDouble(R3TextA.Text);
+                    f3.B = ParseDouble(R3TextB.Text);
+                    f3.C = GetIntFromComboBox(R3CombC);
+                    f3.D = GetIntFromComboBox(R3CombD);
                     func = new Function3();
                 }
                 else if (Radio4.IsChecked == true)
                 {
-                    parameters.A = ParseDouble(R4TextA.Text);
-                    parameters.C = GetIntFromComboBox(R4CombC);
-                    parameters.D = (int)Math.Round(ParseDouble(R4TextD.Text));
+                    var f4 = new Function4();
+                    f4.y = ParseDouble(R4TextA.Text);
+                    f4.z = GetIntFromComboBox(R4CombC);
+                    f4.x = (int)Math.Round(ParseDouble(R4TextD.Text));
                     func = new Function4();
                 }
                 else if (Radio5.IsChecked == true)
                 {
-                    parameters.X = ParseDouble(R5TextX.Text);
-                    parameters.Y = ParseDouble(R5TextY.Text);
-                    parameters.N = (int)Math.Round(ParseDouble(R5TextN.Text));
-                    parameters.K = (int)Math.Round(ParseDouble(R5TextK.Text));
-                    if (parameters.N < 1 || parameters.K < 1)
+                    var f5 = new Function5();
+                    f5.X = ParseDouble(R5TextX.Text);
+                    f5.Y = ParseDouble(R5TextY.Text);
+                    f5.N = (int)Math.Round(ParseDouble(R5TextN.Text));
+                    f5.K = (int)Math.Round(ParseDouble(R5TextK.Text));
+                    if (f5.N < 1 || f5.K < 1)
                         throw new ArgumentException("N и K должны быть ≥ 1");
                     func = new Function5();
                 }
@@ -64,7 +67,7 @@ namespace Lab_rab_2_Husainova_R.Z._BPI_23_02
                     return;
                 }
 
-                double result = func.Calculate(parameters);
+                double result = func.Calculate();
                 this.Title = "Ответ: " + result;
             }
             catch (FormatException ex)

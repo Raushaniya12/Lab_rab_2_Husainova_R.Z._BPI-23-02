@@ -8,18 +8,22 @@ namespace Lab_rab_2_Husainova_R.Z._BPI_23_02
 {
     public class Function5 : BaseFunction
     {
+        public double X { get; set; }
+        public double Y { get; set; }
+        public int K { get; set; }
+        public int N { get; set; }
         public override string ImagePath => "/Resources/_11var.png";
-        public override double Calculate(FunctionParameters p)
+        public override double Calculate()
         {
-            if (p.N < 1 || p.K < 1)
+            if (N < 1 || K < 1)
                 throw new ArgumentException("N и K должны быть ≥ 1");
 
             double sum = 0;
-            for (int i = 1; i <= p.N; i++)
+            for (int i = 1; i <= N; i++)
             {
-                for (int j = 1; j <= p.K; j++)
+                for (int j = 1; j <= K; j++)
                 {
-                    double numerator = Math.Sin(Math.Pow(p.Y, i)) + i * p.X;
+                    double numerator = Math.Sin(Math.Pow(Y, i)) + i * X;
                     double denominator = (i + 1) * j;
                     sum += numerator / denominator;
                 }
