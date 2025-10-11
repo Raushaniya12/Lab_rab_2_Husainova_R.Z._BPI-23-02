@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -131,6 +132,27 @@ namespace Lab_rab_2_Husainova_R.Z._BPI_23_02
             string newText = textBox.Text.Remove(textBox.SelectionStart, textBox.SelectionLength).Insert(textBox.SelectionStart, e.Text);
             e.Handled = !IsValidNumberInput(newText);
         }
+        private void SwitchTheme(string themeName)
+        {
+            var uri = new Uri($"Themes/{themeName}.xaml", UriKind.Relative);
+            var theme = new ResourceDictionary { Source = uri };
 
+            var oldTheme = Application.Current.Resources.MergedDictionaries
+                .FirstOrDefault(d => d.Source?.OriginalString.Contains("Theme") == true);
+            if (oldTheme != null)
+                Application.Current.Resources.MergedDictionaries.Remove(oldTheme);
+
+            Application.Current.Resources.MergedDictionaries.Add(theme);
+        }
+        private void BtnLight_Click(object sender, RoutedEventArgs e)
+        {
+            SwitchTheme("LightTheme");
+
+        }
+        private void BtnDark_Click(object sender, RoutedEventArgs e)
+        {
+            SwitchTheme("DarkTheme");
+
+        }
     }
 }

@@ -12,6 +12,26 @@
         <local:Function3 x:Key="Func3"/>
         <local:Function4 x:Key="Func4"/>
         <local:Function5 x:Key="Func5"/>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="{DynamicResource ButtonBackground}" />
+            <Setter Property="Foreground" Value="{DynamicResource ButtonForeground}" />
+            <Setter Property="Margin" Value="2" />
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="{DynamicResource TextBoxBackground}" />
+            <Setter Property="Foreground" Value="{DynamicResource TextBoxForeground}" />
+            <Setter Property="Padding" Value="3" />
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{DynamicResource WindowForeground}" />
+        </Style>
+
+        <Style TargetType="ListBox">
+            <Setter Property="Background" Value="{DynamicResource TextBoxBackground}" />
+            <Setter Property="Foreground" Value="{DynamicResource TextBoxForeground}" />
+        </Style>
     </Window.Resources>
 
     <StackPanel>
@@ -42,7 +62,12 @@
                         </ComboBox>
                     </Grid>
                 </GroupBox>
+                <WrapPanel>
+                    <Button x:Name="BtnLight" Content="☀️"  Click="BtnLight_Click" Margin="80,5,0,5"/>
+                    <Button x:Name="BtnDark" Content=" 🌙"  Click="BtnDark_Click" Margin="5"/>
+                </WrapPanel>
             </WrapPanel>
+            
         </RadioButton>
         <RadioButton Margin="5" Name="Radio2">
             <WrapPanel>
