@@ -15,7 +15,33 @@
         <Style TargetType="Button">
             <Setter Property="Background" Value="{DynamicResource ButtonBackground}" />
             <Setter Property="Foreground" Value="{DynamicResource ButtonForeground}" />
-            <Setter Property="Margin" Value="2" />
+            <Setter Property="Margin" Value="3" />
+            <Setter Property="Padding" Value="3,2" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border 
+                    x:Name="border"
+                    Background="{TemplateBinding Background}">
+                            <ContentPresenter 
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Margin="{TemplateBinding Padding}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" 
+                                Value="{DynamicResource ButtonHoverBackground}" />
+                            </Trigger>
+                            <Trigger Property="Tag" Value="Active">
+                                <Setter TargetName="border" Property="Background" 
+                                Value="{DynamicResource ButtonActiveBackground}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
 
         <Style TargetType="TextBox">
@@ -31,6 +57,119 @@
         <Style TargetType="ListBox">
             <Setter Property="Background" Value="{DynamicResource TextBoxBackground}" />
             <Setter Property="Foreground" Value="{DynamicResource TextBoxForeground}" />
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="Background" Value="{DynamicResource TextBoxBackground}" />
+            <Setter Property="Foreground" Value="{DynamicResource TextBoxForeground}" />
+            <Setter Property="Padding" Value="3" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox">
+                        <Grid>
+                            <Border 
+                        x:Name="border"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="2">
+                                <ContentPresenter 
+                            x:Name="contentPresenter"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Margin="{TemplateBinding Padding}"
+                            Content="{TemplateBinding SelectionBoxItem}"
+                            ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                            IsHitTestVisible="False" />
+                            </Border>
+                            <ToggleButton 
+                        x:Name="toggleButton"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        BorderThickness="0"
+                        IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                        Focusable="False"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Width="20"
+                        Cursor="Hand">
+                                <ToggleButton.Template>
+                                    <ControlTemplate TargetType="ToggleButton">
+                                        <Grid Background="Transparent">
+                                            <Path 
+                                        x:Name="arrowPath"
+                                        Data="M 0 0 L 4 4 L 8 0 Z"
+                                        Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=ComboBox}}"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center" />
+                                        </Grid>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter TargetName="arrowPath" Property="Fill" 
+                                                Value="{DynamicResource ButtonHoverBackground}" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </ToggleButton.Template>
+                            </ToggleButton>
+
+                            <Popup 
+                        x:Name="PART_Popup"
+                        Placement="Bottom"
+                        IsOpen="{TemplateBinding IsDropDownOpen}"
+                        AllowsTransparency="True"
+                        Focusable="False"
+                        PopupAnimation="Slide">
+                                <Border 
+                            Background="{DynamicResource TextBoxBackground}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="2">
+                                    <ScrollViewer MaxHeight="200">
+                                        <ItemsPresenter 
+                                    MinWidth="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ComboBox}}" />
+                                    </ScrollViewer>
+                                </Border>
+                            </Popup>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <Style TargetType="ComboBoxItem">
+            <Setter Property="Background" Value="{DynamicResource TextBoxBackground}" />
+            <Setter Property="Foreground" Value="{DynamicResource TextBoxForeground}" />
+            <Setter Property="Padding" Value="5,3" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBoxItem">
+                        <Border 
+                    x:Name="border"
+                    Background="{TemplateBinding Background}"
+                    Padding="{TemplateBinding Padding}">
+                            <ContentPresenter />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" 
+                                Value="{DynamicResource ButtonHoverBackground}" />
+                                <Setter Property="Foreground" 
+                                Value="{DynamicResource ButtonForeground}" />
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="border" Property="Background" 
+                                Value="{DynamicResource ButtonActiveBackground}" />
+                                <Setter Property="Foreground" 
+                                Value="{DynamicResource ButtonForeground}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
     </Window.Resources>
 
@@ -63,8 +202,8 @@
                     </Grid>
                 </GroupBox>
                 <WrapPanel>
-                    <Button x:Name="BtnLight" Content="☀️"  Click="BtnLight_Click" Margin="80,5,0,5"/>
-                    <Button x:Name="BtnDark" Content=" 🌙"  Click="BtnDark_Click" Margin="5"/>
+                    <Button x:Name="BtnLight" Content="☀️"  Click="BtnLight_Click"/>
+                    <Button x:Name="BtnDark" Content=" 🌙"  Click="BtnDark_Click"/>
                 </WrapPanel>
             </WrapPanel>
             
