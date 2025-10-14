@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab_rab_2_Husainova_R.Z._BPI_23_02"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="570" MinHeight="400" MinWidth="570">
+        Title="MainWindow" Height="400" Width="570" MinHeight="400" MinWidth="570"
+        Background="{DynamicResource WindowBackground}"
+        Foreground="{DynamicResource WindowForeground}">
     <Window.Resources>
         <local:Function1 x:Key="Func1"/>
         <local:Function2 x:Key="Func2"/>
@@ -17,7 +19,6 @@
             <Setter Property="Foreground" Value="{DynamicResource ButtonForeground}" />
             <Setter Property="Margin" Value="3" />
             <Setter Property="Padding" Value="3,2" />
-            <Setter Property="BorderThickness" Value="0" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
@@ -50,6 +51,12 @@
             <Setter Property="Padding" Value="3" />
         </Style>
 
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="{DynamicResource WindowForeground}" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontWeight" Value="Normal" />
+        </Style>
+        
         <Style TargetType="TextBlock">
             <Setter Property="Foreground" Value="{DynamicResource WindowForeground}" />
         </Style>
@@ -57,6 +64,30 @@
         <Style TargetType="ListBox">
             <Setter Property="Background" Value="{DynamicResource TextBoxBackground}" />
             <Setter Property="Foreground" Value="{DynamicResource TextBoxForeground}" />
+        </Style>
+
+        <Style TargetType="GroupBox">
+            <Setter Property="Foreground" Value="{DynamicResource WindowForeground}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="GroupBox">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <ContentPresenter 
+                        ContentSource="Header"
+                        Grid.Row="0"
+                        TextElement.Foreground="{TemplateBinding Foreground}"
+                        Margin="0,0,0,5"/>
+                            <Border Grid.Row="1">
+                                <ContentPresenter />
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
 
         <Style TargetType="ComboBox">
@@ -82,8 +113,7 @@
                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                             Margin="{TemplateBinding Padding}"
                             Content="{TemplateBinding SelectionBoxItem}"
-                            ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
-                            IsHitTestVisible="False" />
+                            ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"/>
                             </Border>
                             <ToggleButton 
                         x:Name="toggleButton"
@@ -103,8 +133,7 @@
                                         x:Name="arrowPath"
                                         Data="M 0 0 L 4 4 L 8 0 Z"
                                         Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=ComboBox}}"
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Center" />
+                                        />
                                         </Grid>
                                         <ControlTemplate.Triggers>
                                             <Trigger Property="IsMouseOver" Value="True">
@@ -171,12 +200,64 @@
                 </Setter.Value>
             </Setter>
         </Style>
-    </Window.Resources>
 
+        <Style TargetType="RadioButton">
+            <Setter Property="Foreground" Value="{DynamicResource WindowForeground}" />
+            <Setter Property="Margin" Value="3" />
+            <Setter Property="Padding" Value="4,0,0,0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border 
+                        x:Name="Indicator"
+                        Width="16"
+                        Height="16"
+                        CornerRadius="8"
+                        BorderThickness="1"
+                        BorderBrush="{DynamicResource WindowForeground}"
+                        Background="{DynamicResource TextBoxBackground}"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Margin="0,0,4,0">
+                                <Border 
+                            x:Name="CheckMark"
+                            Width="8"
+                            Height="8"
+                            CornerRadius="4"
+                            Background="{DynamicResource TextBoxForeground}"
+                            Visibility="Collapsed"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center" />
+                            </Border>
+                            <ContentPresenter 
+                        Grid.Column="1"
+                        VerticalAlignment="Center"
+                        RecognizesAccessKey="True" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="CheckMark" Property="Visibility" Value="Visible" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+   
+    
     <StackPanel>
-        <RadioButton  Margin="5" Name="Radio1">
+        <RadioButton   Name="Radio1">
             <WrapPanel>
-                <Image Source="{Binding ImagePath, Source={StaticResource Func1}}" Height="25"/>
+                <Grid Width="200" Height="23">
+                    <Image Source="{Binding ImagePath, Source={StaticResource Func1}}" />
+                    <Rectangle Fill="{DynamicResource WindowForeground}" Opacity="0.2" />
+                </Grid>
                 <GroupBox Header="Параметры функции">
                     <Grid >
                         <Grid.RowDefinitions>
@@ -203,14 +284,17 @@
                 </GroupBox>
                 <WrapPanel>
                     <Button x:Name="BtnLight" Content="☀️"  Click="BtnLight_Click"/>
-                    <Button x:Name="BtnDark" Content=" 🌙"  Click="BtnDark_Click"/>
+                    <Button x:Name="BtnDark" Content="🌙"  Click="BtnDark_Click"/>
                 </WrapPanel>
             </WrapPanel>
             
         </RadioButton>
-        <RadioButton Margin="5" Name="Radio2">
+        <RadioButton  Name="Radio2">
             <WrapPanel>
-                <Image Source="{Binding ImagePath, Source={StaticResource Func2}}" Height="20"/>
+                <Grid Width="200" Height="20">
+                    <Image Source="{Binding ImagePath, Source={StaticResource Func2}}" />
+                    <Rectangle Fill="{DynamicResource WindowForeground}" Opacity="0.2" />
+                </Grid>
                 <GroupBox Header="Параметры функции">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="a"/>
@@ -230,9 +314,12 @@
                 </GroupBox>
             </WrapPanel>
         </RadioButton>
-        <RadioButton Margin="5" Name="Radio3">
+        <RadioButton  Name="Radio3">
             <WrapPanel>
-                <Image Source="{Binding ImagePath, Source={StaticResource Func3}}" Height="25"/>
+                <Grid Width="200" Height="27">
+                    <Image Source="{Binding ImagePath, Source={StaticResource Func3}}" />
+                    <Rectangle Fill="{DynamicResource WindowForeground}" Opacity="0.2" />
+                </Grid>
                 <GroupBox Header="Параметры функции">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="a"/>
@@ -256,9 +343,12 @@
                 </GroupBox>
             </WrapPanel>
         </RadioButton>
-        <RadioButton Margin="5" Name="Radio4">
+        <RadioButton  Name="Radio4">
             <WrapPanel>
-                <Image Source="{Binding ImagePath, Source={StaticResource Func4}}" Height="36"/>
+                <Grid Width="155" Height="30">
+                    <Image Source="{Binding ImagePath, Source={StaticResource Func4}}" />
+                    <Rectangle Fill="{DynamicResource WindowForeground}" Opacity="0.2" />
+                </Grid>
                 <GroupBox Header="Параметры функции">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="c" VerticalAlignment="Center"/>
@@ -279,28 +369,31 @@
                 </GroupBox>
             </WrapPanel>
         </RadioButton>
-        <RadioButton Margin="5" Name="Radio5">
+        <RadioButton  Name="Radio5">
             <WrapPanel>
-                <Image Source="{Binding ImagePath, Source={StaticResource Func5}}" Height="35"/>
+                <Grid Width="90" Height="25">
+                    <Image Source="{Binding ImagePath, Source={StaticResource Func5}}" />
+                    <Rectangle Fill="{DynamicResource WindowForeground}" Opacity="0.2" />
+                </Grid>
                 <GroupBox Header="Параметры функции Z">
                     <StackPanel Orientation="Horizontal">
-                        <Label Content="x"/>
-                        <TextBox  MinWidth="60" x:Name="R5TextX" Margin="2"
+                        <Label Content="x="/>
+                        <TextBox  MinWidth="60" x:Name="R5TextX" 
                                  PreviewTextInput="TextBox_PreviewTextInput"/>
-                        <Label Content="y"/>
-                        <TextBox  MinWidth="60" x:Name="R5TextY" Margin="2"
+                        <Label Content="y="/>
+                        <TextBox  MinWidth="60" x:Name="R5TextY" 
                                  PreviewTextInput="TextBox_PreviewTextInput"/>
                         <Label Content="N ="/>
-                        <TextBox  MinWidth="50" x:Name="R5TextN" Margin="2"
+                        <TextBox  MinWidth="50" x:Name="R5TextN" 
                                  PreviewTextInput="TextBox_PreviewTextInput" ToolTip="Введите целое число"/>
                         <Label Content="K ="/>
-                        <TextBox  MinWidth="50" x:Name="R5TextK" Margin="2"
+                        <TextBox  MinWidth="50" x:Name="R5TextK" 
                                  PreviewTextInput="TextBox_PreviewTextInput" ToolTip="Введите целое число"/>
                     </StackPanel>
                 </GroupBox>
             </WrapPanel>
         </RadioButton>
-        <Button Content="Считать" Margin="10" HorizontalAlignment="Center"
+        <Button Content="Считать" HorizontalAlignment="Center"
                 Click="BtnCalculate_Click"/>
     </StackPanel>
 </Window>
