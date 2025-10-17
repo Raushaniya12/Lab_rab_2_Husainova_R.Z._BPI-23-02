@@ -252,13 +252,13 @@
    
     
     <StackPanel>
-        <RadioButton   Name="Radio1">
+        <RadioButton Name="Radio1" Checked="OnRadioButtonChecked">
             <WrapPanel>
                 <Grid Width="200" Height="23">
                     <Image Source="{Binding ImagePath, Source={StaticResource Func1}}" />
-                    <Rectangle Fill="{DynamicResource WindowForeground}" Opacity="0.2" />
+                    <Rectangle Fill="{DynamicResource ButtonBackground}" Opacity="0.2" />
                 </Grid>
-                <GroupBox Header="Параметры функции">
+                <GroupBox x:Name="Group1" Header="Параметры функции">
                     <Grid >
                         <Grid.RowDefinitions>
                             <RowDefinition/>
@@ -269,10 +269,10 @@
                             <ColumnDefinition Width="100"/>
                         </Grid.ColumnDefinitions>
                         <Label Content="a" Grid.Row="0" Grid.Column="0"/>
-                        <TextBox x:Name="R1TextA" Text="0" Grid.Row="0" Grid.Column="1"
+                        <TextBox x:Name="R1TextA"  Grid.Row="0" Grid.Column="1"
                              PreviewTextInput="TextBox_PreviewTextInput" MinWidth="70"/>
                         <Label Content="f" Grid.Row="1" Grid.Column="0"/>
-                        <ComboBox Grid.Row="1" Grid.Column="1" SelectedIndex="0" x:Name="R1CombF">
+                        <ComboBox Grid.Row="1" Grid.Column="1"  x:Name="R1CombF">
                             <ComboBoxItem Content="4"/>
                             <ComboBoxItem Content="5"/>
                             <ComboBoxItem Content="6"/>
@@ -289,22 +289,22 @@
             </WrapPanel>
             
         </RadioButton>
-        <RadioButton  Name="Radio2">
+        <RadioButton Name="Radio2" Checked="OnRadioButtonChecked">
             <WrapPanel>
                 <Grid Width="200" Height="20">
                     <Image Source="{Binding ImagePath, Source={StaticResource Func2}}" />
-                    <Rectangle Fill="{DynamicResource WindowForeground}" Opacity="0.2" />
+                    <Rectangle Fill="{DynamicResource ButtonBackground}" Opacity="0.2" />
                 </Grid>
-                <GroupBox Header="Параметры функции">
+                <GroupBox x:Name="Group2" Header="Параметры функции">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="a"/>
-                        <TextBox Text="0"  MinWidth="70" x:Name="R2TextA"
+                        <TextBox   MinWidth="70" x:Name="R2TextA"
                                  PreviewTextInput="TextBox_PreviewTextInput"/>
                         <Label Content="b"/>
-                        <TextBox Text="0"  MinWidth="70" x:Name="R2TextB"
+                        <TextBox   MinWidth="70" x:Name="R2TextB"
                                  PreviewTextInput="TextBox_PreviewTextInput"/>
                         <Label Content="f"/>
-                        <ComboBox MinWidth="100" SelectedIndex="0" x:Name="R2CombF">
+                        <ComboBox MinWidth="100"  x:Name="R2CombF">
                             <ComboBoxItem Content="10"/>
                             <ComboBoxItem Content="20"/>
                             <ComboBoxItem Content="30"/>
@@ -314,27 +314,27 @@
                 </GroupBox>
             </WrapPanel>
         </RadioButton>
-        <RadioButton  Name="Radio3">
+        <RadioButton Name="Radio3" Checked="OnRadioButtonChecked">
             <WrapPanel>
                 <Grid Width="200" Height="27">
                     <Image Source="{Binding ImagePath, Source={StaticResource Func3}}" />
-                    <Rectangle Fill="{DynamicResource WindowForeground}" Opacity="0.2" />
+                    <Rectangle Fill="{DynamicResource ButtonBackground}" Opacity="0.2" />
                 </Grid>
-                <GroupBox Header="Параметры функции">
+                <GroupBox x:Name="Group3" Header="Параметры функции">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="a"/>
-                        <TextBox Text="0"  MinWidth="50" x:Name="R3TextA"
+                        <TextBox   MinWidth="50" x:Name="R3TextA"
                                  PreviewTextInput="TextBox_PreviewTextInput"/>
                         <Label Content="b"/>
-                        <TextBox Text="0"  MinWidth="50" x:Name="R3TextB"
+                        <TextBox   MinWidth="50" x:Name="R3TextB"
                                  PreviewTextInput="TextBox_PreviewTextInput"/>
                         <Label Content="c"/>
-                        <ComboBox MinWidth="50" SelectedIndex="0" x:Name="R3CombC">
+                        <ComboBox MinWidth="50"  x:Name="R3CombC">
                             <ComboBoxItem Content="0"/>
                             <ComboBoxItem Content="1"/>
                         </ComboBox>
                         <Label Content="d"/>
-                        <ComboBox MinWidth="70" SelectedIndex="0" x:Name="R3CombD">
+                        <ComboBox MinWidth="70"  x:Name="R3CombD">
                             <ComboBoxItem Content="-1"/>
                             <ComboBoxItem Content="0"/>
                             <ComboBoxItem Content="1"/>
@@ -343,39 +343,39 @@
                 </GroupBox>
             </WrapPanel>
         </RadioButton>
-        <RadioButton  Name="Radio4">
+        <RadioButton Name="Radio4" Checked="OnRadioButtonChecked">
             <WrapPanel>
                 <Grid Width="155" Height="30">
                     <Image Source="{Binding ImagePath, Source={StaticResource Func4}}" />
-                    <Rectangle Fill="{DynamicResource WindowForeground}" Opacity="0.2" />
+                    <Rectangle Fill="{DynamicResource ButtonBackground}" Opacity="0.2" />
                 </Grid>
-                <GroupBox Header="Параметры функции">
+                <GroupBox x:Name="Group4" Header="Параметры функции">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="c" VerticalAlignment="Center"/>
-                        <ComboBox MinWidth="70" SelectedIndex="0" x:Name="R4CombC"
+                        <ComboBox MinWidth="70"  x:Name="R4CombC"
                           VerticalAlignment="Center">
                             <ComboBoxItem Content="0"/>
                             <ComboBoxItem Content="1"/>
                             <ComboBoxItem Content="2"/>
                         </ComboBox>
                         <Label Content="d" VerticalAlignment="Center"/>
-                        <TextBox Text="0"  MinWidth="70" x:Name="R4TextD" ToolTip="Введите целое число"
+                        <TextBox   MinWidth="70" x:Name="R4TextD" ToolTip="Введите целое число"
                              VerticalAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput"/>
                         <Label Content="a" VerticalAlignment="Center"/>
-                        <TextBox Text="0"  MinWidth="70" 
+                        <TextBox   MinWidth="70" 
                          VerticalAlignment="Center" x:Name="R4TextA"
                          PreviewTextInput="TextBox_PreviewTextInput"/>
                     </StackPanel>
                 </GroupBox>
             </WrapPanel>
         </RadioButton>
-        <RadioButton  Name="Radio5">
+        <RadioButton Name="Radio5" Checked="OnRadioButtonChecked">
             <WrapPanel>
                 <Grid Width="90" Height="25">
                     <Image Source="{Binding ImagePath, Source={StaticResource Func5}}" />
-                    <Rectangle Fill="{DynamicResource WindowForeground}" Opacity="0.2" />
+                    <Rectangle Fill="{DynamicResource ButtonBackground}" Opacity="0.2" />
                 </Grid>
-                <GroupBox Header="Параметры функции Z">
+                <GroupBox x:Name="Group5" Header="Параметры функции Z">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="x="/>
                         <TextBox  MinWidth="60" x:Name="R5TextX" 

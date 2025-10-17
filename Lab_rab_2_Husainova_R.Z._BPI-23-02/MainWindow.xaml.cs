@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -11,6 +12,7 @@ namespace Lab_rab_2_Husainova_R.Z._BPI_23_02
         public MainWindow()
         {
             InitializeComponent();
+            UpdateInputStates(); // Изначально всё заблокировано
         }
 
         private void BtnCalculate_Click(object sender, RoutedEventArgs e)
@@ -41,7 +43,7 @@ namespace Lab_rab_2_Husainova_R.Z._BPI_23_02
                     f3.B = ParseDouble(R3TextB.Text);
                     f3.C = GetIntFromComboBox(R3CombC);
                     f3.D = GetIntFromComboBox(R3CombD);
-                    func = new Function3();
+                    func = f3; // Исправлено: использовался новый экземпляр без параметров
                 }
                 else if (Radio4.IsChecked == true)
                 {
@@ -49,7 +51,7 @@ namespace Lab_rab_2_Husainova_R.Z._BPI_23_02
                     f4.y = ParseDouble(R4TextA.Text);
                     f4.z = GetIntFromComboBox(R4CombC);
                     f4.x = (int)Math.Round(ParseDouble(R4TextD.Text));
-                    func = new Function4();
+                    func = f4; // Исправлено
                 }
                 else if (Radio5.IsChecked == true)
                 {
@@ -60,7 +62,7 @@ namespace Lab_rab_2_Husainova_R.Z._BPI_23_02
                     f5.K = (int)Math.Round(ParseDouble(R5TextK.Text));
                     if (f5.N < 1 || f5.K < 1)
                         throw new ArgumentException("N и K должны быть ≥ 1");
-                    func = new Function5();
+                    func = f5; // Исправлено
                 }
                 else
                 {
@@ -118,6 +120,7 @@ namespace Lab_rab_2_Husainova_R.Z._BPI_23_02
             }
             throw new InvalidOperationException("Выбранный элемент не является ComboBoxItem или не содержит значения");
         }
+
         private bool IsValidNumberInput(string text)
         {
             if (string.IsNullOrEmpty(text) || text == "-")
@@ -125,13 +128,16 @@ namespace Lab_rab_2_Husainova_R.Z._BPI_23_02
             string normalized = text.Replace(',', '.');
             return double.TryParse(normalized, System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out _);
         }
-        private void TextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+
+        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            TextBox textBox = sender as TextBox;
-            if (textBox == null) return;
-            string newText = textBox.Text.Remove(textBox.SelectionStart, textBox.SelectionLength).Insert(textBox.SelectionStart, e.Text);
-            e.Handled = !IsValidNumberInput(newText);
+            if (sender is TextBox textBox)
+            {
+                string newText = textBox.Text.Remove(textBox.SelectionStart, textBox.SelectionLength).Insert(textBox.SelectionStart, e.Text);
+                e.Handled = !IsValidNumberInput(newText);
+            }
         }
+
         private void SwitchTheme(string themeName)
         {
             var uri = new Uri($"Themes/{themeName}.xaml", UriKind.Relative);
@@ -144,6 +150,7 @@ namespace Lab_rab_2_Husainova_R.Z._BPI_23_02
 
             Application.Current.Resources.MergedDictionaries.Add(theme);
         }
+
         private void BtnLight_Click(object sender, RoutedEventArgs e)
         {
             SwitchTheme("LightTheme");
@@ -156,6 +163,31 @@ namespace Lab_rab_2_Husainova_R.Z._BPI_23_02
             SwitchTheme("DarkTheme");
             BtnDark.Tag = "Active";
             BtnLight.Tag = null;
+        }
+
+        private void UpdateInputStates()
+        {
+            Group1.IsEnabled = false;
+            Group2.IsEnabled = false;
+            Group3.IsEnabled = false;
+            Group4.IsEnabled = false;
+            Group5.IsEnabled = false;
+
+            if (Radio1.IsChecked == true)
+                Group1.IsEnabled = true;
+            else if (Radio2.IsChecked == true)
+                Group2.IsEnabled = true;
+            else if (Radio3.IsChecked == true)
+                Group3.IsEnabled = true;
+            else if (Radio4.IsChecked == true)
+                Group4.IsEnabled = true;
+            else if (Radio5.IsChecked == true)
+                Group5.IsEnabled = true;
+        }
+
+        private void OnRadioButtonChecked(object sender, RoutedEventArgs e)
+        {
+            UpdateInputStates();
         }
     }
 }
